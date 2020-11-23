@@ -1,4 +1,7 @@
 # NodeJSCodePipeline
+![dev-version](https://img.shields.io/github/package-json/v/greyshipscode/NodeJSCodePipeline)
+![npm-version](https://img.shields.io/npm/v/@greyshipscode/node_js_code_pipeline)
+![cdk-version](https://img.shields.io/github/package-json/dependency-version/greyshipscode/NodeJSCodePipeline/dev/aws-cdk)
 
 Uses the CDK to create a fully managed AWS development environment.
 

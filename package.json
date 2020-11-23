@@ -1,5 +1,5 @@
 {
-  "name": "node_js_code_pipeline",
+  "name": "@greyshipscode/node_js_code_pipeline",
   "version": "0.1.0",
   "author": {
     "name": "Grey Newell",
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.74.0",
-    "aws-cdk": "1.74.0",
+    "aws-cdk": "^1.74.0",
     "jest": "^26.4.2"
   },
   "dependencies": {

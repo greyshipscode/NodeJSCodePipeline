@@ -1,8 +1,8 @@
-# Welcome to your CDK JavaScript project!
+# NodeJSCodePipeline
 
-This is a blank project for JavaScript development with CDK.
+Using the CDK to create a fully managed AWS development environment.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app. The build step is not required when using JavaScript.
+This script will create a sample git repository with a full NodeJS continuous delivery pipeline attached. The pipeline will build and test new commits, send configurable email updates, and with manual approval will deploy your code to production. The resources created in production will be fully managed infrastructure-as-code stored in a CloudFormation stack.
 
 ## Useful commands
 

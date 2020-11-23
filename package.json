@@ -9,7 +9,12 @@
   "bugs": "https://github.com/greyshipscode/NodeJSCodePipeline/issues",
   "homepage": "https://github.com/greyshipscode/NodeJSCodePipeline",
   "license": "MIT",
-  "keywords": ["SDLC", "AWS", "CI", "CD"],
+  "keywords": [
+    "SDLC",
+    "AWS",
+    "CI",
+    "CD"
+  ],
   "description": "A script to automate the creation of a complete Managed NodeJS SDLC Pipeline inside of AWS.",
   "repository": {
     "type": "git",
@@ -22,8 +27,8 @@
     "npm": ">= 6.14.6"
   },
   "scripts": {
-    "build": "echo \"The build step is not required when using JavaScript!\" && exit 0",
-    "cdk": "cdk",
+    "build": "cdk synth",
+    "deploy": "cdk deploy",
     "test": "jest"
   },
   "devDependencies": {
@@ -32,6 +37,7 @@
     "jest": "^26.4.2"
   },
   "dependencies": {
+    "@aws-cdk/aws-codecommit": "^1.74.0",
     "@aws-cdk/core": "1.74.0"
   }
 }

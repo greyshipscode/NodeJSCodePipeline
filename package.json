@@ -37,7 +37,10 @@
     "jest": "^26.4.2"
   },
   "dependencies": {
+    "@aws-cdk/aws-codebuild": "^1.74.0",
     "@aws-cdk/aws-codecommit": "^1.74.0",
+    "@aws-cdk/aws-codepipeline": "^1.74.0",
+    "@aws-cdk/aws-codepipeline-actions": "^1.74.0",
     "@aws-cdk/core": "1.74.0"
   }
 }

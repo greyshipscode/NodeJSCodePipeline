@@ -2,7 +2,7 @@
 'use strict';
 const { exec } = require("child_process");
 
-exec("cdk deploy --require-approval never", (error, stdout, stderr) => {
+exec("./node_modules/aws-cdk/bin/cdk deploy --require-approval never", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;

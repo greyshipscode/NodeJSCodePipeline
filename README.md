@@ -54,11 +54,11 @@ Once your stack is created, you can trigger the pipeline by pushing your first c
 * Valid `package.json` including scripts: `build` & `test`
 * Valid `appspec.yml` and lifecycle scripts
 
-For convenience, I have developed [a sample application](https://github.com/greyshipscode/NodeJSCodePipeline-SampleApp) with the absolute bare minimum to complete each stage of the pipeline successfully. To get started immediately:
+For convenience, I have developed [a sample application](https://github.com/greyshipscode/NodeJSCodePipeline-SampleApp) with the absolute bare minimum to complete each stage of the pipeline successfully. To get started immediately, simply replace `<GIT_REPO_URL>` in the below shell script with the git URL for your new repository:
 
 ```
 git clone https://github.com/greyshipscode/NodeJSCodePipeline-SampleApp.git
-cd NodeJSCodePipeline-SampleApp.git
+cd NodeJSCodePipeline-SampleApp
 git remote set-url origin https://<GIT_REPO_URL>
 git push -f
 ```

@@ -1,47 +1,80 @@
 # NodeJSCodePipeline
 ![dev-version](https://img.shields.io/github/package-json/v/greyshipscode/NodeJSCodePipeline)
 ![npm-version](https://img.shields.io/npm/v/@greyshipscode/node_js_code_pipeline)
-![cdk-version](https://img.shields.io/github/package-json/dependency-version/greyshipscode/NodeJSCodePipeline/dev/aws-cdk)
+![cdk-version](https://img.shields.io/github/package-json/dependency-version/greyshipscode/NodeJSCodePipeline/aws-cdk)
 
-Uses the CDK to create a fully managed AWS development environment.
+NodeJSCodePipeline is a CLI utility for quickly generating an automated NodeJS SDLC in AWS.
 
-This script will create a sample git repository with a full NodeJS continuous delivery pipeline attached. The pipeline will build and test new commits, send configurable email updates, and with manual approval will deploy your code to production. The resources created in production will be fully managed infrastructure-as-code stored in a CloudFormation stack.
+### Features
+* Creates a NodeJS continuous delivery pipeline attached to a git repo with one command
+* Build, test and deploy new commits automatically
+* Includes manual approvals prior to automated production deploy
+* All resources are fully managed infrastructure-as-code backed by a CloudFormation Stack
 
-## Installation
+### Under Development
+* Automated integration test harness
+* Configurable email & sms updates
 
-1. Clone this repository or install it via npm.
-2. Install the AWS CDK Toolkit via npm.
-`npm install -g aws-cdk@1.74.0`
-3. Install the project's dependencies from project directory.
-`npm install`
+## Getting Started
 
-You're ready to rock!
+1. Install this package via npm.
+`npm install -g @greyshipscode/node_js_code_pipeline`
+2. Ensure that your AWS Credentials are set in your environment.
 
-## Build
+You may use the commands below to set your AWS credentials, replacing the values given with your id and secret.
 
-"Build" the project and synthesize the various JavaScript code into a CloudFormation template on the console for spot-checking with this command:
-`npm run build`
+### Linux/MacOS
+```
+export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+export AWS_DEFAULT_REGION=us-west-2
+```
 
-## Tests
-
-This project is protected by a suite of automated tests to ensure that all resources will be created according to plan.
-
-Run the tests from the project directory via:
-`npm run test`
+### Powershell
+```
+$Env:AWS_ACCESS_KEY_ID="AKIAIOSFODNN7EXAMPLE"
+$Env:AWS_SECRET_ACCESS_KEY="wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+$Env:AWS_DEFAULT_REGION="us-west-2"
+```
 
 ## Usage
 
-The naming of all resources created by this script are set by the environment variable NodeJSCodePipelineStack. You may set it in most shell environments like so:
-`export NodeJSCodePipelineStack=MyAppName`
+You may run the script by running the following command:
+`node_js_code_pipeline`
 
-Otherwise, a default value of NodeJSAutomatedSDLC will be used, as I assume you are only using for testing purposes.
+This will create a stack with the default name, parameters and templates. This is currently alpha software, further options will be enabled as parameters from the CLI as development continues. This guide will be updated periodically with new features.
 
-You may then deploy a new stack using the following command:
-`npm run deploy`
+## Working With Your New Stack
+> :warning: **DISCLAIMER!** The deployment environments created by this script are __not intended for production use.__ 
 
-To deploy many pipelines, simply trigger a new deployment each time you update your NodeJSCodePipelineStack.
+This tool is intended to enable you to set up multiple continuous delivery pipelines for NodeJS as quickly as possible. *BEFORE* you deploy your app to production, you should customize the CloudFormation Template of your stack.
+
+### Pushing Your First Commit
+Once your stack is created, you can trigger the pipeline by pushing your first commit to your primary branch. In order to deploy succesfully, your app needs just a few things:
+* Valid `package.json` including scripts: `build` & `test`
+* Valid `appspec.yml` and lifecycle scripts
+
+For convenience, I have developed [a sample application](https://github.com/greyshipscode/NodeJSCodePipeline-SampleApp) with the absolute bare minimum to complete each stage of the pipeline successfully. To get started immediately:
+
+```
+git clone https://github.com/greyshipscode/NodeJSCodePipeline-SampleApp.git
+cd NodeJSCodePipeline-SampleApp.git
+git remote set-url origin https://<GIT_REPO_URL>
+git push -f
+```
+
+You will be asked to provide your git credentials.
+
+> For more information on AWS git credentials and CodeCommit, check out [the official documentation](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html).
 
 ## Cleanup
 
-To clean up any of the resources created by this script, you may use the AWS CLI. Your CloudFormation stack's name will be set to the value of NodeJSCodePipelineStack when you deployed it.
+To clean up all of the resources created by this script, you just have to delete the backing CloudFormation stack. Your stack's name will be set to the value of NodeJSCodePipelineStack when you deployed it.
+
+### AWS CLI
+
+List all cloudformation stacks:
+`aws cloudformation list-stacks`
+
+Delete the stack created by NodeJSCodePipeline:
 `aws cloudformation delete-stack --stack-name YOUR_STACK_NAME`

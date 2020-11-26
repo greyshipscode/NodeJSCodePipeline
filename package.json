@@ -1,6 +1,6 @@
 {
   "name": "@greyshipscode/node_js_code_pipeline",
-  "version": "0.2.2",
+  "version": "0.2.4",
   "main": "lib/index.js",
   "author": {
     "name": "Grey Newell",
@@ -22,7 +22,7 @@
     "url": "https://github.com/greyshipscode/NodeJSCodePipeline.git"
   },
   "bin": {
-    "node_js_code_pipeline": "cli/index.js"
+    "node_js_code_pipeline": "index.js"
   },
   "engines": {
     "npm": ">= 6.14.6"

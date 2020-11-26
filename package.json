@@ -1,7 +1,7 @@
 {
   "name": "@greyshipscode/node_js_code_pipeline",
-  "version": "0.2.0",
-  "main": "cli/index.js",
+  "version": "0.2.1",
+  "main": "lib/index.js",
   "author": {
     "name": "Grey Newell",
     "email": "greyshipscode@gmail.com",
@@ -22,7 +22,7 @@
     "url": "https://github.com/greyshipscode/NodeJSCodePipeline.git"
   },
   "bin": {
-    "node_js_code_pipeline": "bin/node_js_code_pipeline.js"
+    "node_js_code_pipeline": "cli/index.js"
   },
   "engines": {
     "npm": ">= 6.14.6"
@@ -34,17 +34,17 @@
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.74.0",
-    "aws-cdk": "1.74.0",
     "jest": "^26.4.2"
   },
   "dependencies": {
-    "@aws-cdk/aws-autoscaling": "^1.75.0",
-    "@aws-cdk/aws-codebuild": "^1.74.0",
-    "@aws-cdk/aws-codecommit": "^1.74.0",
-    "@aws-cdk/aws-codedeploy": "^1.74.0",
-    "@aws-cdk/aws-codepipeline": "^1.74.0",
-    "@aws-cdk/aws-codepipeline-actions": "^1.74.0",
-    "@aws-cdk/aws-ec2": "^1.75.0",
-    "@aws-cdk/core": "1.74.0"
+    "@aws-cdk/aws-autoscaling": "1.74.0",
+    "@aws-cdk/aws-codebuild": "1.74.0",
+    "@aws-cdk/aws-codecommit": "1.74.0",
+    "@aws-cdk/aws-codedeploy": "1.74.0",
+    "@aws-cdk/aws-codepipeline": "1.74.0",
+    "@aws-cdk/aws-codepipeline-actions": "1.74.0",
+    "@aws-cdk/aws-ec2": "1.74.0",
+    "@aws-cdk/core": "1.74.0",
+    "aws-cdk": "1.74.0"
   }
 }

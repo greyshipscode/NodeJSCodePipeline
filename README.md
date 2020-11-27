@@ -44,6 +44,12 @@ You may run the script by running the following command:
 
 This will create a stack with the default name, parameters and templates. This is currently alpha software, further options will be enabled as parameters from the CLI as development continues. This guide will be updated periodically with new features.
 
+### Options
+
+Options may be specified like so: `node_js_code_pipeline -n TestSDLCStack`
+
+* `-n` or `--name`: Sets the StackName, which all of your resources will be named after.
+
 ## Working With Your New Stack
 > :warning: **DISCLAIMER!** The deployment environments created by this script are __not intended for production use.__ 
 

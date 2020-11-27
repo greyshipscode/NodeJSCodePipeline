@@ -1,6 +1,6 @@
 {
   "name": "@greyshipscode/node_js_code_pipeline",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "main": "lib/index.js",
   "author": {
     "name": "Grey Newell",

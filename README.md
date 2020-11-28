@@ -1,6 +1,7 @@
 # NodeJSCodePipeline
 ![cdk-version](https://img.shields.io/github/package-json/dependency-version/greyshipscode/NodeJSCodePipeline/aws-cdk)
 ![npm-version](https://img.shields.io/npm/v/@greyshipscode/node_js_code_pipeline)
+![build-passing](https://travis-ci.com/greyshipscode/NodeJSCodePipeline.svg?branch=main)
 ![npm-downloads](https://img.shields.io/npm/dt/@greyshipscode/node_js_code_pipeline)
 
 NodeJSCodePipeline is a CLI utility for quickly generating an automated NodeJS SDLC in AWS.

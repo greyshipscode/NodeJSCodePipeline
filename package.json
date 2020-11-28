@@ -1,6 +1,6 @@
 {
   "name": "@greyshipscode/node_js_code_pipeline",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "main": "lib/index.js",
   "author": {
     "name": "Grey Newell",
@@ -29,6 +29,7 @@
   },
   "scripts": {
     "build": "cdk synth",
+    "clean": "rm -rf coverage node_modules cdk.out",
     "deploy": "cdk deploy",
     "test": "jest",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
@@ -48,6 +49,6 @@
     "@aws-cdk/aws-ec2": "1.74.0",
     "@aws-cdk/core": "1.74.0",
     "aws-cdk": "1.74.0",
-    "yargs": "^16.1.1"
+    "yargs": "16.1.1"
   }
 }

@@ -1,32 +1,49 @@
 #! /usr/bin/env node
 'use strict';
+//This file is the entry point from the CLI
 
-const cli = require('./cli');
+//CORE DEPENDENCIES
+const fs        = require('fs');
+const path      = require('path');
+//NPM DEPENDENCIES
 const yargs = require('yargs/yargs');
-const fs = require('fs');
-const path = require('path');
-const { hideBin } = require('yargs/helpers')
+const { hideBin } = require('yargs/helpers');
+//USER DEPENDENCIES
+const CLI = require('./cli');
 
+//PRIVATE METHODS
+const getDirectory = () => {
+  return path.dirname(fs.realpathSync(__filename));
+};
+
+//EMIT EXIT EVENT ON KILL
+var cleanExit = function() { process.exit() };
+process.on('SIGINT', cleanExit);
+process.on('SIGTERM', cleanExit);
+
+//INSTANTIATION
+const dir = getDirectory();
+const cli = new CLI(dir);
 const argv = yargs(hideBin(process.argv)).argv;
-const dirString = path.dirname(fs.realpathSync(__filename));
 
 const stackName = argv.name ? argv.name : argv.n ? argv.n : 'NodePipeline';
 cli.setEnv('stack-name', stackName);
 
+//Convert flag input to execution action
 const executeCommand = async(command = 'default') => {
   switch(command.toLowerCase().trim()) {
     case "setup":
     case "s":
-      return cli.commands.setup(dirString);
+      return cli.setup();
     //Stack Lifecycle Actions
     case "list":
     case "l":
-      return cli.commands.listStacks(dirString);
+      return cli.listStacks();
     case "destroy":
     case "d":
-      return await cli.commands.destroyStack(dirString, stackName);
+      return cli.destroyStack(stackName);
     default:
-      return cli.commands.deployStack(dirString);
+      return cli.deployStack(dir);
   }
 };
 
@@ -41,4 +58,3 @@ if(nonFlags === 0) {
   //bad syntax
   return console.error('aws-node-pipeline: Improper command syntax. You may input up to one command and unlimited options.');
 }
-

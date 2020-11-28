@@ -13,7 +13,7 @@ const dirString = path.dirname(fs.realpathSync(__filename));
 const stackName = argv.name ? argv.name : argv.n ? argv.n : 'NodePipeline';
 cli.setEnv('stack-name', stackName);
 
-const executeCommand = (command = 'default') => {
+const executeCommand = async(command = 'default') => {
   switch(command.toLowerCase().trim()) {
     case "setup":
     case "s":
@@ -24,7 +24,7 @@ const executeCommand = (command = 'default') => {
       return cli.commands.listStacks(dirString);
     case "destroy":
     case "d":
-      return cli.commands.destroyStack(dirString, stackName);
+      return await cli.commands.destroyStack(dirString, stackName);
     default:
       return cli.commands.deployStack(dirString);
   }

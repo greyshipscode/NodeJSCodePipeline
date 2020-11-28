@@ -3,17 +3,9 @@ const { spawn } = require('child_process');
 module.exports = (dir, stack) => {
   return new Promise((resolve, reject) => {
     const runDeploy = spawn(dir + '/node_modules/aws-cdk/bin/cdk', ['destroy', stack, '--require-approval', 'never'], {
-      cwd: dir
-    });
-
-    runDeploy.stdout.on('data', (data) => {
-      console.info(`aws-node-pipeline: ${data}`);
-    });
-
-    process.stdin.pipe(runDeploy.stdin);
-
-    runDeploy.stderr.on('data', (data) => {
-      console.error(`[DESTROY]: ${data}`);
+      cwd: dir,
+      detached: true,
+      stdio: "inherit"
     });
 
     runDeploy.on('error', (error) => {
@@ -27,6 +19,7 @@ module.exports = (dir, stack) => {
           return reject(new Error("CDK Error"));
         case 0:
           console.info("aws-node-pipeline: Destroy completed successfully.");
+          process.exit(0);
           return resolve();
         default:
           console.error("[ERROR] aws-node-pipeline: Child process exited with status code " + code);

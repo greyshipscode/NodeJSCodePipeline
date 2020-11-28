@@ -30,7 +30,8 @@
   "scripts": {
     "build": "cdk synth",
     "deploy": "cdk deploy",
-    "test": "jest"
+    "test": "jest",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.74.0",

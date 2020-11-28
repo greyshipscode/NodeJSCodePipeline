@@ -6,3 +6,6 @@ cdk.out
 
 # Parcel default cache directory
 .parcel-cache
+
+# Coveralls secret token
+.coveralls.yml

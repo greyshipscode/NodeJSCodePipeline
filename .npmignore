@@ -1,3 +1,6 @@
 # CDK asset staging directory
 .cdk.staging
 cdk.out
+.coveralls.yml
+.travis.yml
+coverage

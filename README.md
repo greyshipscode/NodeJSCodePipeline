@@ -76,6 +76,7 @@ This tool is intended to enable you to set up multiple continuous delivery pipel
 Once your stack is created, you can trigger the pipeline by pushing your first commit to your primary branch. In order to deploy succesfully, your app needs just a few things:
 * Valid `package.json` including scripts: `build` & `test`
 * Valid `appspec.yml` and lifecycle scripts
+* The ability to reply to status checks at `/status:80` with 200 OK
 
 For convenience, I have developed [a sample application](https://github.com/greyshipscode/NodeJSCodePipeline-SampleApp) with the absolute bare minimum to complete each stage of the pipeline successfully. To get started immediately, simply replace `<GIT_REPO_URL>` in the below shell script with the git URL for your new repository:
 

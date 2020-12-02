@@ -1,5 +1,8 @@
 node_modules
 
+# PKG executable output
+node_js_code_pipeline
+
 # CDK asset staging directory
 .cdk.staging
 cdk.out
